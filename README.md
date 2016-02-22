@@ -13,7 +13,7 @@
 1. Copy `my-vars.default.yml` to `my-vars.yml` and insert your particulars.
 
 
-## Usage 
+## Vagrant Usage 
 
 The following vagrant commands are likely to see the most use. 
 
@@ -27,3 +27,7 @@ It maybe be neccessary to do a `halt` or `reload` if the guest VM gets confused 
 Less frequently, you'll may want to reprovision to get the lastest changes, or rebuild your VM Completely. In that case, you'll need these commands:
 * `vagrant provision` will re-run the ansible provisioners
 * `vagrant destroy` to delete the VM, in case you want to start over
+
+## Script Usage
+
+See the [script usage section](https://github.com/OULibraries/ansible-role-d7#script-usage) of the OU Libraries D7 role
