@@ -33,3 +33,6 @@ user_pass: '$6$rounds=100000$qrlkLzoJAmDl4q46$8lUP.o5oe8Cmr/OCy8/pdIvbuSP8KaC8cq
 
 # local domain - mainly for landrush users
 local_dn_suffix: 'drupal.vm.test'
+
+# Passing the local domain on to apache
+httpd_dn_suffix: "{{ local_dn_suffix }}"
