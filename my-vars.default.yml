@@ -1,12 +1,10 @@
 ---
 # The configuration below would get you a server ready to run
 # d7_init.sh /srv/drupal-dev1 and d7_init.sh /srv/drupal-dev2
-# the sites would then be accessible at:
-# drupal-dev1.ngrok.io and drupal-dev2.ngrok.io
 
-# Internally, the server will consider these sites to be at
-# drupal-dev1.drupal.vm.test and drupal-dev2.drupal.vm.test
-
+# This example forwards:
+# https://drupal-dev1.drupal.vm.test on the vagrant host to https://drupal-dev1.ngrok.io and
+# https://drupal-dev2.drupal.vm.test on the vagrant host to https://drupal-dev2.ngrok.io
 
 # Developer ID and Auth
 
@@ -15,15 +13,23 @@ email: 'user@example.com'
 # Your ngrok token
 ngrok_authtoken: ''
 
-# Passwords
+# Configuration for tunnels.
+# Note that because proto == tls, traffic is encrypted end-to-end, rather than cleartext. This is good.
+# DO NOT PASS SENSITIVE DATA OVER CLEARTEXT TUNNELS.
+tunnels:
+  - name: 'drupal-dev1'
+    dn_suffix: 'ngrok.io'
+    port: '443'
+    proto: 'tls'
+  - name: 'drupal-dev2'
+    dn_suffix: 'ngrok.io'
+    port: '443'
+    proto: 'tls'
 
+# Local passwords
 mariadb_root_pass: 'root'
 # crypt value of 'libacct' because ansible
 user_pass: '$6$rounds=100000$qrlkLzoJAmDl4q46$8lUP.o5oe8Cmr/OCy8/pdIvbuSP8KaC8cqVHvmsMzObotRakn2lSMEnu/z0bI4NbXJ4zPoQ.8yUWvw2SqveDJ1'
 
-# Web Server Settings
-
-# local domain for drupal sites, mainly for landrush users
-httpd_dn_suffix: 'drupal.vm.test'
-# The hostnames of the sites you will build.
-sites: ['drupal-dev1', 'drupal-dev2']
+# local domain - mainly for landrush users
+local_dn_suffix: 'drupal.vm.test'
