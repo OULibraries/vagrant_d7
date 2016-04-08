@@ -8,6 +8,7 @@
       file: path=/srv state=directory mode=0755 force=yes
   roles:
     - OULibraries.centos7
+    - OULibraries.mariadb
     - OULibraries.d7
     - OULibraries.ngrok
   tasks:
