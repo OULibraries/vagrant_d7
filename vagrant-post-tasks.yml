@@ -12,5 +12,5 @@
     name: /srv
     fstype: vboxsf
     src: srv
-    opts: "uid={{apache_user.stdout}},gid={{apache_group.stdout}}"
+    opts: "uid={{apache_user.stdout}},gid={{apache_group.stdout}},dmode=775,fmode=664"
     state: mounted
