@@ -1,13 +1,17 @@
 ---
-# fetch OULibraries.centos7 from github
+
 - src: https://github.com/OULibraries/ansible-role-centos7
   version: v2016-04-08.0
   name: OULibraries.centos7
-# fetch OULibraries.d7 from github
+
+- src: https://github.com/OULibraries/ansible-role-mariadb
+  version: v2016-04-08.0
+  name: OULibraries.mariadb
+
 - src: https://github.com/OULibraries/ansible-role-d7
-  version: v2016-04-06.0
+  version: origin/dev-removedb
   name: OULibraries.d7
-# fetch OULibraries.ngrok from github
+
 - src: https://github.com/OULibraries/ansible-role-ngrok
   version: v2016-04-08.0
   name: OULibraries.ngrok
