@@ -33,8 +33,12 @@ Vagrant.configure(2) do |config|
 
   ### Application Specific Setup #########
 
-  # mount the /srv folder with the right permissions
-  config.vm.synced_folder "./srv/", "/srv/"
+  # unless we're not in vagrant mode, mount the /srv folder so that we
+  # can remount it with the right permissions later
+
+  unless myvars.key?("environment_name") && "vagrant" != myvars["environment_name"]
+    config.vm.synced_folder "./srv/", "/srv/"
+  end
   
   # Temorary workaround because Windows
   config.vm.provision "shell", path: "bootstrap.sh"
