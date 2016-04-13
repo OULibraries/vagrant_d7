@@ -28,14 +28,12 @@ tunnels:
 
 # Local passwords
 mariadb_root_pass: 'root'
+
 # crypt value of 'libacct' because ansible
 user_pass: '$6$rounds=100000$qrlkLzoJAmDl4q46$8lUP.o5oe8Cmr/OCy8/pdIvbuSP8KaC8cqVHvmsMzObotRakn2lSMEnu/z0bI4NbXJ4zPoQ.8yUWvw2SqveDJ1'
 
-# local domain - mainly for landrush users
-local_dn_suffix: 'drupal.vm.test'
-
 # Passing the local domain on to apache
-httpd_dn_suffix: "{{ local_dn_suffix }}"
+httpd_dn_suffix: "ngrok.io"
 
 # Style of environment to build: vagrant, test or prod
 environment_name: "vagrant"
