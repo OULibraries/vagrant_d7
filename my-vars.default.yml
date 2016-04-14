@@ -36,3 +36,6 @@ local_dn_suffix: 'drupal.vm.test'
 
 # Passing the local domain on to apache
 httpd_dn_suffix: "{{ local_dn_suffix }}"
+
+# Style of environment to build: vagrant, test or prod
+environment_name: "vagrant"
