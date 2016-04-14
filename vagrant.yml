@@ -33,6 +33,3 @@
         name: vagrant
         append: yes
         groups: apache
-
-  post_tasks:
-    - include: vagrant-post-tasks.yml
