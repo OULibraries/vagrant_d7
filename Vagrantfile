@@ -28,11 +28,10 @@ Vagrant.configure(2) do |config|
 
   ### Application Specific Setup #########
 
-  # unless we're not in vagrant mode, mount the /srv folder so that we
-  # can remount it with the right permissions later
-
+  # unless we're not in vagrant mode, mount the /srv folder
+  # uid=48, gid=48 means user:apache, group:apache in CentOS land
   unless myvars.key?("environment_name") && "vagrant" != myvars["environment_name"]
-    config.vm.synced_folder "./srv/", "/srv/"
+    config.vm.synced_folder "./srv/", "/srv/", :mount_options => ["uid=48", "gid=48", "dmode=775","fmode=664"]
   end
   
   # Temorary workaround because Windows
