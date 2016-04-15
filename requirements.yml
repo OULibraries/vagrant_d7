@@ -3,7 +3,11 @@
 - src: https://github.com/OULibraries/ansible-role-centos7
   version: v2016-04-08.0
   name: OULibraries.centos7
-
+  
+- src: https://github.com/OULibraries/ansible-role-apache2
+  version: v2016-04-08.0
+  name: OULibraries.apache2
+  
 - src: https://github.com/OULibraries/ansible-role-mariadb
   version: v2016-04-08.0
   name: OULibraries.mariadb
