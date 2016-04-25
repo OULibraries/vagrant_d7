@@ -11,7 +11,7 @@
     - OULibraries.mariadb
     - OULibraries.d7
     - OULibraries.ngrok
-
+    - OULibraries.users
   tasks:
     - name: Enable selinux for testing
       selinux:
