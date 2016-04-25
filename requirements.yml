@@ -20,5 +20,5 @@
   name: OULibraries.ngrok
 
 - src: https://github.com/OULibraries/ansible-role-users
-  version: v2016-04-25.0
+  version: v2016-04-25.1
   name: OULibraries.users
