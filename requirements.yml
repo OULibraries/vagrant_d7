@@ -1,10 +1,10 @@
 ---
 - src: https://github.com/OULibraries/ansible-role-centos7
-  version: v2016-04-25.1
+  version: v2016-05-03.0
   name: OULibraries.centos7
 
 - src: https://github.com/OULibraries/ansible-role-apache2
-  version: v2016-04-25.0
+  version: v2016-04-25.1
   name: OULibraries.apache2
 
 - src: https://github.com/OULibraries/ansible-role-mariadb
@@ -12,7 +12,7 @@
   name: OULibraries.mariadb
 
 - src: https://github.com/OULibraries/ansible-role-d7
-  version: v2016-04-25.0
+  version: v2016-05-04.0
   name: OULibraries.d7
 
 - src: https://github.com/OULibraries/ansible-role-ngrok
@@ -20,5 +20,5 @@
   name: OULibraries.ngrok
 
 - src: https://github.com/OULibraries/ansible-role-users
-  version: v2016-04-25.1
+  version: v2016-05-11.2
   name: OULibraries.users
