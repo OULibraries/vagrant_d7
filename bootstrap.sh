@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# Keep colors intact
+export PYTHONUNBUFFERED=1
+export ANSIBLE_FORCE_COLOR=1
+
 # we need git and ansible to get started
 yum install -y git
 yum install -y ansible
