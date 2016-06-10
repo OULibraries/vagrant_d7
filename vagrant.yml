@@ -1,11 +1,17 @@
 ---
-- hosts: default
+- hosts: localhost
   sudo: yes
   vars_files:
     - my-vars.yml
   pre_tasks:
     - name: /srv is a directory
       file: path=/srv state=directory mode=0755 force=yes
+
+    - name: Check preconditions for running playbook. 
+      assert:
+        that:
+          - mariadb_root_pass is defined
+
   roles:
     - OULibraries.centos7
     - OULibraries.mariadb
@@ -34,3 +40,7 @@
         name: vagrant
         append: yes
         groups: apache
+
+
+
+        
