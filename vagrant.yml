@@ -40,7 +40,3 @@
         name: vagrant
         append: yes
         groups: apache
-
-
-
-        
