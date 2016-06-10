@@ -13,6 +13,10 @@ email: 'user@example.com'
 # Your ngrok token
 ngrok_authtoken: ''
 
+# Local APC credentials
+apc_username: apcuser
+apc_password: apcpass
+
 # Configuration for tunnels.
 # Note that because proto == tls, traffic is encrypted end-to-end, rather than cleartext. This is good.
 # DO NOT PASS SENSITIVE DATA OVER CLEARTEXT TUNNELS.
