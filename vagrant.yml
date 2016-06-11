@@ -15,6 +15,7 @@
   roles:
     - OULibraries.centos7
     - OULibraries.mariadb
+    - OULibraries.apache2
     - OULibraries.d7
     - OULibraries.ngrok
     - OULibraries.users
