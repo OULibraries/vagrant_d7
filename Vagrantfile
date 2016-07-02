@@ -1,15 +1,12 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
+VAGRANT_COMMAND = ARGV[0]
+
 Vagrant.configure(2) do |config|
 
   ### General Vagrant Configuration #######
-  
-  # First, get settings from my-vars.yml
-  require 'yaml'
-  myvarsfile = File.dirname(__FILE__)+'/my-vars.yml'
-  myvars = YAML.load_file(myvarsfile) # TODO should probably error out if my-vars DNE
-  
+
   # Our starting point for CentOS is Jeff Geerling's ansible base box. 
   # https://github.com/geerlingguy/packer-centos-7/
   config.vm.box = "geerlingguy/centos7" 
@@ -20,29 +17,14 @@ Vagrant.configure(2) do |config|
   #   v.cpus = 2
   # end
 
-  # # Do control machine tasks first
-  # config.vm.provision "ansible_local" do |ansible|
-  #   ansible.provisioning_path = "/vagrant"
-  #   ansible.playbook = "control-machine.yml"
-  # end
-
-  ### Application Specific Setup #########
-
-  # unless we're not in vagrant mode, mount the /srv folder
-  # uid=48, gid=48 means user:apache, group:apache in CentOS land
-  unless myvars.key?("environment_name") && "vagrant" != myvars["environment_name"]
-    config.vm.synced_folder "./srv/", "/srv/", :mount_options => ["uid=48", "gid=48", "dmode=775","fmode=664"]
-  end
   
-  # Temorary workaround because Windows
+  # Ansible local is broken on windows, so we bootstrap ansible with a
+  # shellscript
   config.vm.provision "shell", path: "bootstrap.sh", keep_color: "True"
 
-    
-  # # Then do d7 stuff
-  # config.vm.provision "ansible_local" do |ansible|
-  #   ansible.provisioning_path = "/vagrant"
-  #   ansible.galaxy_role_file = "requirements.yml"
-  #   ansible.playbook = "vagrant.yml"
-  # end
+  if VAGRANT_COMMAND == "ssh"
+    # set this to a real account
+    config.ssh.username = "vagrant"  
+  end
   
 end
