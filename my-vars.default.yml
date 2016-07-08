@@ -45,3 +45,9 @@ httpd_dn_suffix: "ngrok.io"
 
 # Style of environment to build: vagrant, test or prod
 environment_name: "vagrant"
+
+# SSH Brokers. Localhost is effectively null/loopback
+ssh_brokers:
+  - alias: 'localhost'
+    ip: '127.0.0.1'
+dn_suffix: 'localdomain'
